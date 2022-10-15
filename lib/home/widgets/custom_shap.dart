@@ -8,7 +8,7 @@ class RPSCustomPainter extends CustomPainter{
 
 
     Paint paint0 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
+      ..color =   Colors.red.withOpacity(.5)
       ..style = PaintingStyle.fill
       ..strokeWidth = 1;
 

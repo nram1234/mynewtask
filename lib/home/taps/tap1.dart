@@ -22,23 +22,7 @@ class Tap1 extends GetView<HomeController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(AllPadding.p8),
-            child: Row(children: [
-              CustomPaint(
-                  size: size,
-                  child: Container(
-                    width: 130,
-                    height: 40,
-                    child: Row(children: [
-                      Icon(Icons.location_on_outlined, color: Colors.white),
-                      SizedBox(width: 4,),
-                      Text("Oxford st", style:TextStyle(color: Colors.white),)
-                    ]),
-                  ),
-                  painter: RPSCustomPainter())
-            ]),
-          ),
+
           Padding(
             padding: const EdgeInsets.all(AllPadding.p8),
             child: Row(

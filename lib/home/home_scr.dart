@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mynewtask/home/widgets/custom_shap.dart';
 
+import '../utility/all_padding.dart';
 import '../utility/app_colors.dart';
 import 'controller/home_controller.dart';
 
@@ -13,7 +15,30 @@ class HomeSCR extends GetView<HomeController> {
     return GetBuilder<HomeController>(builder: (logic) {
       return SafeArea(
         child: Scaffold(
-          body: logic.currentScreen,
+          body: Column(
+            children: [
+              Padding(
+                padding:   EdgeInsets.all(AllPadding.p8),
+                child: Row(children: [
+                  CustomPaint(
+
+                      child: Container(
+                        width: 130,
+                        height: 40,
+                        child: Row(children: [
+                          Icon(Icons.location_on_outlined, color: Colors.white),
+                          SizedBox(width: 4,),
+                          Text("Oxford st", style:TextStyle(color: Colors.white),)
+                        ]),
+                      ),
+                      painter: RPSCustomPainter())
+                ]),
+              ),
+
+
+              Expanded(child: logic.currentScreen),
+            ],
+          ),
           bottomNavigationBar: BottomAppBar(//color: Colors.blue,
             //  shape: CircularNotchedRectangle(),
               notchMargin: 0,
@@ -22,19 +47,19 @@ class HomeSCR extends GetView<HomeController> {
                 children: [
                   IconButton(onPressed: () {
                     controller.updateCurrentScreen(0);
-                  }, icon: Icon(Icons.home_filled)),
+                  }, icon: Icon(Icons.home_filled,color: logic.index==0?Colors.red:Colors.grey,)),
                   Spacer(flex: 1,),
                   IconButton(onPressed: () {
                     controller.updateCurrentScreen(1);
-                  }, icon: Icon(Icons.notifications_none_outlined)),
+                  }, icon: Icon(Icons.notifications_none_outlined,color: logic.index==1?Colors.red:Colors.grey,)),
                   Spacer(flex: 3,),
                   IconButton(onPressed: () {
                     controller.updateCurrentScreen(2);
-                  }, icon: Icon(Icons.favorite)),
+                  }, icon: Icon(Icons.favorite,color: logic.index==2?Colors.red:Colors.grey,)),
                   Spacer(flex: 1,),
                   IconButton(onPressed: () {
                     controller.updateCurrentScreen(3);
-                  }, icon: Icon(Icons.wallet))
+                  }, icon: Icon(Icons.wallet,color: logic.index==3?Colors.red:Colors.grey,))
                 ],
               )),
           floatingActionButton: FloatingActionButton(
