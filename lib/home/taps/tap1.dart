@@ -106,12 +106,16 @@ icon: Icon(Icons.search_rounded),hintText: AllStringConst.search
                   return GetBuilder<HomeController>(
                       id: controller.deals[pos].id.toString(),
                       builder: (logic) {
-                        return DealsOfDayItemList(
-                          onClick: () {
-                            logic.setfave(controller.deals[pos]);
-                          },
-                          dayModel: controller.deals[pos],
-                          size: size,
+                        return GestureDetector(onTap: (){
+                          logic.addcartItem(logic.deals[pos]);
+                        },
+                          child: DealsOfDayItemList(
+                            onClick: () {
+                              logic.setfave(controller.deals[pos]);
+                            },
+                            dayModel: controller.deals[pos],
+                            size: size,
+                          ),
                         );
                       });
                 }),

@@ -64,16 +64,40 @@ class HomeController extends GetxController {
 
   setfave(DealsOfDayModel dayModel){
     dayModel.favorite=   !dayModel.favorite;
-    if(dayModel.favorite){
 
-      Get.find<CartController>().addcartItem(dayModel) ;
-    }else{
-      Get.find<CartController>().removeCartItem(dayModel) ;
-    }
 
     update([dayModel.id.toString()]);
 
 
 
   }
+
+
+
+
+
+
+
+
+
+  List<DealsOfDayModel>favItem=[];
+
+
+
+  addcartItem(DealsOfDayModel item){
+
+
+
+
+    Get.find<CartController>().addcartItem(item) ;
+    update();
+  }
+  removeCartItem(DealsOfDayModel item){
+
+
+    Get.find<CartController>().removeCartItem(item) ;
+    update();
+  }
+
+
 }
