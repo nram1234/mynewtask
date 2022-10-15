@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mynewtask/utility/all_string_const.dart';
 import 'package:mynewtask/utility/app_colors.dart';
 
 import '../../utility/all_padding.dart';
@@ -15,14 +16,31 @@ class Tap1 extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery
-        .of(context)
-        .size;
+    Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: const EdgeInsets.all(AllPadding.p8),
+            child: Container( padding: const EdgeInsets.only(right: AllPadding.p8, left: AllPadding.p8),
 
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.grey.withOpacity(.1)),
+                  color: Colors.grey.withOpacity(.1)),
+         child: TextField(decoration:
+         InputDecoration(
+             border: InputBorder.none,
+             focusedBorder: InputBorder.none,
+             enabledBorder: InputBorder.none,
+             errorBorder: InputBorder.none,
+             disabledBorder: InputBorder.none,
+
+icon: Icon(Icons.search_rounded),hintText: AllStringConst.search
+
+         )),   ),
+          ),
           Padding(
             padding: const EdgeInsets.all(AllPadding.p8),
             child: Row(
@@ -109,53 +127,50 @@ class Tap1 extends GetView<HomeController> {
               ),
               child: IntrinsicHeight(
                   child: Row(children: [
-                    Expanded(
-                      child: Container(),
-                    ),
-                    Expanded(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                Expanded(
+                  child: Container(),
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+
+                      Text(
+                         "Mega",
+                        style: norTextStyle(),
+                      ),
+                      Text(
+                        "Mega",
+                        style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        controller.botoomDel.time,
+                        style: norTextStyle(),
+                      ),
+
+                      Row(
                         children: [
                           Text(
-                            controller.botoomDel.title,
-                            style: catTextStyle(),
-                          ),
-                          Text(
-                            controller.botoomDel.time,
+                            controller.botoomDel.price_after_discount
+                                .toString(),
                             style: norTextStyle(),
                           ),
-                          Row(
-                            children: [
-                              Icon(Icons.location_on_outlined, size: 15),
-                              Text(
-                                controller.botoomDel.pices.toString(),
-                                style: norTextStyle(),
-                              ),
-                            ],
+                          SizedBox(
+                            width: 8,
                           ),
-                          Row(
-                            children: [
-                              Text(
-                                controller.botoomDel.price_after_discount
-                                    .toString(),
-                                style: norTextStyle(),
-                              ),
-                              SizedBox(
-                                width: 8,
-                              ),
-                              Text(
-                                controller.botoomDel.price_before_discount
-                                    .toString(),
-                                style: norTextStyle(),
-                              ),
-                            ],
+                          Text(
+                            controller.botoomDel.price_before_discount
+                                .toString(),
+                            style: norTextStyle(),
                           ),
                         ],
                       ),
-                    )
-                  ])),
+                    ],
+                  ),
+                )
+              ])),
             ),
           )
         ],

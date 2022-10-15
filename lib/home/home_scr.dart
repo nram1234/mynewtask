@@ -18,55 +18,92 @@ class HomeSCR extends GetView<HomeController> {
           body: Column(
             children: [
               Padding(
-                padding:   EdgeInsets.all(AllPadding.p8),
-                child: Row(children: [
-                  CustomPaint(
-
-                      child: Container(
-                        width: 130,
-                        height: 40,
-                        child: Row(children: [
-                          Icon(Icons.location_on_outlined, color: Colors.white),
-                          SizedBox(width: 4,),
-                          Text("Oxford st", style:TextStyle(color: Colors.white),)
-                        ]),
-                      ),
-                      painter: RPSCustomPainter())
-                ]),
+                padding: EdgeInsets.all(AllPadding.p8),
+                child: IntrinsicHeight(
+                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,children: [
+                    CustomPaint(
+                        child: Container(
+                          width: 130,
+                          height: 40,
+                          child: Row(children: [
+                            Icon(Icons.location_on_outlined, color: Colors.white),
+                            SizedBox(
+                              width: 4,
+                            ),
+                            Text(
+                              "Oxford st",
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ]),
+                        ),
+                        painter: RPSCustomPainter()),
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(border: Border.all( color: Colors.black26),shape: BoxShape.circle),
+                    )
+                  ]),
+                ),
               ),
-
-
               Expanded(child: logic.currentScreen),
             ],
           ),
-          bottomNavigationBar: BottomAppBar(//color: Colors.blue,
-            //  shape: CircularNotchedRectangle(),
+          bottomNavigationBar: BottomAppBar(
+              //color: Colors.blue,
+              //  shape: CircularNotchedRectangle(),
               notchMargin: 0,
               elevation: 0,
               child: Row(
                 children: [
-                  IconButton(onPressed: () {
-                    controller.updateCurrentScreen(0);
-                  }, icon: Icon(Icons.home_filled,color: logic.index==0?Colors.red:Colors.grey,)),
-                  Spacer(flex: 1,),
-                  IconButton(onPressed: () {
-                    controller.updateCurrentScreen(1);
-                  }, icon: Icon(Icons.notifications_none_outlined,color: logic.index==1?Colors.red:Colors.grey,)),
-                  Spacer(flex: 3,),
-                  IconButton(onPressed: () {
-                    controller.updateCurrentScreen(2);
-                  }, icon: Icon(Icons.favorite,color: logic.index==2?Colors.red:Colors.grey,)),
-                  Spacer(flex: 1,),
-                  IconButton(onPressed: () {
-                    controller.updateCurrentScreen(3);
-                  }, icon: Icon(Icons.wallet,color: logic.index==3?Colors.red:Colors.grey,))
+                  IconButton(
+                      onPressed: () {
+                        controller.updateCurrentScreen(0);
+                      },
+                      icon: Icon(
+                        Icons.home_filled,
+                        color: logic.index == 0 ? Colors.red : Colors.grey,
+                      )),
+                  Spacer(
+                    flex: 1,
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        controller.updateCurrentScreen(1);
+                      },
+                      icon: Icon(
+                        Icons.notifications_none_outlined,
+                        color: logic.index == 1 ? Colors.red : Colors.grey,
+                      )),
+                  Spacer(
+                    flex: 3,
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        controller.updateCurrentScreen(2);
+                      },
+                      icon: Icon(
+                        Icons.favorite,
+                        color: logic.index == 2 ? Colors.red : Colors.grey,
+                      )),
+                  Spacer(
+                    flex: 1,
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        controller.updateCurrentScreen(3);
+                      },
+                      icon: Icon(
+                        Icons.wallet,
+                        color: logic.index == 3 ? Colors.red : Colors.grey,
+                      ))
                 ],
               )),
-          floatingActionButton: FloatingActionButton(
+          floatingActionButton: FloatingActionButton(backgroundColor: Colors.deepOrange,
             onPressed: () {},
             elevation: 0,
           ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
         ),
       );
     });

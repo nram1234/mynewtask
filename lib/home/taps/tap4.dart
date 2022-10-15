@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../cart/cart_controller.dart';
 import '../../cart/widgets/itemlist.dart';
 import '../../utility/all_padding.dart';
+import '../../utility/all_text_style.dart';
 import '../widgets/custom_shap.dart';
 
 class Tap4 extends GetView<CartController> {
@@ -14,7 +15,7 @@ class Tap4 extends GetView<CartController> {
     return Column(crossAxisAlignment: CrossAxisAlignment.start,
       children: [  Padding(
         padding: const EdgeInsets.all(AllPadding.p8),
-        child: Text("data"),
+        child: Text("Cart",style: infoTextStyle()),
       ),
         GetBuilder<CartController>(builder: (logic) {
           return Expanded(
