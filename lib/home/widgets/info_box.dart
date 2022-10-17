@@ -29,25 +29,33 @@ class InfoBox extends StatelessWidget {
         child: Row(children: [
           Container(
 
-            width: 60,
+            width: 50,
             decoration: BoxDecoration(
               color: Colors.grey,
               borderRadius: BorderRadius.circular(10),
             ),
           ),SizedBox(width: 8,),
-          Column(mainAxisSize: MainAxisSize.max,mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                lap,
-                style:catTextStyle(),
-              ),
-              Text(
-                text1,
-                style:norTextStyle(),
-              ),   Text(
-                lap,
-                style:norTextStyle(),
-              ),],
+          Expanded(
+            child: Column(mainAxisSize: MainAxisSize.max,mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                 FittedBox(
+                  child: Text(
+                    lap,maxLines: 3,
+                    style:catTextStyle(),
+                  ),
+                ),
+                FittedBox(
+                  child: Text(
+                    text1,maxLines: 3,
+                    style:norTextStyle(),
+                  ),
+                ),   FittedBox(
+                  child: Text(
+                    lap,maxLines: 3,
+                    style:norTextStyle(),
+                  ),
+                ),],
+            ),
           )
         ]),
       ),
